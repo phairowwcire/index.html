@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible" content=' ie=edge'>
+    <title>Psychic Game</title>
+</head>
+
+
+<body bgcolor="#C3ECB7">
+
+<h1>Let's Make a Deal...errr Guess Game!</h1>
+<p>
+    <br>
+    <h2>Sorry Charlie...also sorry if your name isn't Charlie</h2>
+</p>
+
+<script type='text/javascript'>
+
+
+    alert('you have 10 guesses, guess the correct letter');
+
+    var answer = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+    var guess = prompt('What is Your Guess?');
+    for (i = 0; i < 10; i++) {
+        if (answer == guess) {
+            alert('you guessed right');
+            break;
+        } else {
+            guess = prompt('Sorry Better Luck Next Time');
+        }
+    }
+</script>
+</body>
+
+</html>
