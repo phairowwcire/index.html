@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Star Wars Trivia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+
+
+
+
+<style>
+    body {
+        background-color: rgb(56, 60, 61);
+        font-family: Courier New;
+    }
+
+    #main {
+        width: 80%;
+        max-width: 950px;
+        border: 5px purple solid;
+        margin: auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    #header {
+        margin-top: 0;
+        border: 2px solid black;
+        padding: 5px;
+        height: 250px;
+        background: black;
+        background-image: url("https://i.ibb.co/jG6BL2W/kisspng-atmosphere-sky-astronomy-black-star-get-snowing-png-pictures-5ab13ceace7338-1046213315215649068456.jpg");
+        color: white;
+    }
+
+    label {
+        display: block;
+    }
+
+    input {
+        width: 30px;
+        margin-left: 20px;
+    }
+
+    h2 {
+        clear: both;
+        padding-top: 20px;
+    }
+
+    button {
+        width: 100px;
+        margin-top: 20px;
+    }
+</style>
+
+
+
+
+
+
+<div id="main">
+    <div id="header">
+        <h1>Star Wars Trivia Quiz</h1>
+    </div>
+    <form id="form1">
+
+        <h2>Darth Vader is a ____ Lord?</h2>
+        <label for="var_string"><input type="radio" name="variable" value="0" id="var_string" />Vice</label>
+
+        <label for="var_join"><input type="radio" name="variable" value="25" id="var_join" />Sith</label>
+
+        <label for="var_info"><input type="radio" name="variable" value="0" id="var_info" />Shining
+            Light</label>
+
+        <label for="var_condition"><input type="radio" name="variable" value="0" id="var_condition" />Leaping</label>
+
+
+        <h2>Han Solo claimed that his Millennium Falcon ship made the Kessel Run in less than how many parsecs?
+        </h2>
+        <label for="var_string"><input type="radio" name="variable" value="0" id="var_string" />1</label>
+
+        <label for="var_join"><input type="radio" name="variable" value="0" id="var_join" />5</label>
+
+        <label for="var_info"><input type="radio" name="variable" value="25" id="var_info" />12</label>
+
+        <label for="var_condition"><input type="radio" name="variable" value="0" id="var_condition" />9.5</label>
+
+
+        <h2>Which actor plays Jedi Knight Obi-Wan Kenobi in Episode II: Attack of the Clones?</h2>
+
+        <label for="cat_string"><input type="radio" name="con" value="0" id="cat_string" />Sir Alec
+            Guinness</label>
+
+        <label for="cat_join"><input type="radio" name="con" value="0" id="cat_join" />Orlando Bloom</label>
+
+        <label for="cat_info"><input type="radio" name="con" value="25" id="cat_info" />Ewan McGregor</label>
+
+        <label for="cat_condition"><input type="radio" name="con" value="0" id="cat_condition" />None of these
+            Actors</label>
+
+        <h2>What is a Death Star?</h2>
+
+        <label for="if_string"><input type="radio" name="ifstate" value="25" id="if_string" />A Moon sized
+            weapon</label>
+
+        <label for="if_join"><input type="radio" name="ifstate" value="0" id="if_join" />A Black Hole</label>
+
+        <label for="if_info"><input type="radio" name="ifstate" value="0" id="if_info" />An Event
+            Horizon</label>
+
+        <label for="if_condition"><input type="radio" name="ifstate" value="0" id="if_condition" />An
+            indestructable Base of operations for the Dark Side</label>
+
+        <button type="submit" value="Submit">Submit</button>
+
+    </form>
+
+    <p>Your grade is: <span id="grade">__</span></p>
+    <p id="grade2"></p>
+
+
+
+
+
+    <script>
+        var timer: 0;
+        var timeLimit: 120;
+
+        function Update() {
+            timer += Time.deltaTime;
+            if (timer >= timeLimit) {
+
+                document.getElementById("form1").onsubmit = function () {
+                    variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
+                    sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+                    con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+                    ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+
+
+                    result = variable + sub + con + ifstate;
+
+                    document.getElementById("grade").innerHTML = result;
+
+                    grading = [
+                        {
+                            score: 0, feedback: "You probably get Star Wars and Star Trek confused", image: url("https://i.ibb.co/0rgSXYM/not-smart.jpg"),
+                        }
+                                {
+                            score: 25, feedback: "There are Sand People smarter than you", image: url("https://i.ibb.co/WVb1sC3/1719b71731ef64134ade238b841e0532.png"),
+                        }
+                                {
+                            score: 50, feedback: "Not bad Padawan. Try again.", image: url("https://i.ibb.co/W3bnHZr/5-differences-between-horses-as-a-hobby-and-as-a-career-lots-to-learn.jpg"),
+                        }
+                                {
+                            score: 75, feedback: "There may be a New Hope!", image: url("https://i.ibb.co/cwd2ybg/CWsb-AOIUk-AANsx-S.jpg"),
+                        }
+                                {
+                            score: 100, feedback: "Excellent! I sense The Force is strong in you! Stop shaking my screen, that's not funny", image: url("https://i.ibb.co/4j11tQn/master-joda.png"),
+
+                        }
+
+
+
+
+
+                    ];
+
+                    for (i = 0; i < grading.length; i++) {
+                        if (result == grading[i].score) {
+                            result2 = grading[i].feedback + "<br/><img src='" + grading[i].image + "' width='300'  />";
+                        }
+
+
+
+
+
+                        document.getElementById("grade2").innerHTML = result2;
+                    }
+
+                    return false;
+                }
+            } 
+    </script>
+    </body>
+    </html>
+
